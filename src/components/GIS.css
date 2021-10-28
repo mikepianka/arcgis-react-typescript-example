@@ -1,0 +1,8 @@
+@import "https://js.arcgis.com/4.21/@arcgis/core/assets/esri/themes/light/main.css";
+
+#gisDiv {
+  padding: 0;
+  margin: 0;
+  height: 600px;
+  width: 100%;
+}
