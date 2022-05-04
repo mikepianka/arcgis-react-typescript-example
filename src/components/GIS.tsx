@@ -5,16 +5,21 @@ import Search from "@arcgis/core/widgets/Search";
 import "./GIS.css";
 
 interface IProps {
-  center: Array<number>;
-  zoom: number;
+  basemap?: __esri.MapProperties["basemap"];
+  center: __esri.MapViewProperties["center"];
+  zoom?: __esri.MapViewProperties["zoom"];
 }
 
-export default function GIS({ center, zoom }: IProps) {
+export default function GIS({
+  basemap = "topo-vector",
+  center,
+  zoom = 10,
+}: IProps) {
   const mapDiv = useRef(null);
 
   useEffect(() => {
     if (mapDiv.current) {
-      const map = new Map({ basemap: "topo-vector" });
+      const map = new Map({ basemap });
 
       const view = new MapView({
         map,
@@ -26,7 +31,7 @@ export default function GIS({ center, zoom }: IProps) {
       const searchWidget = new Search({ view });
       view.ui.add(searchWidget, "top-right");
     }
-  }, [center, zoom]);
+  }, [basemap, center, zoom]);
 
   return <div id="gisDiv" ref={mapDiv}></div>;
 }

@@ -4,7 +4,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <GIS center={[-73, 42]} zoom={10} />
+      <GIS center={[-73, 42]} />
     </div>
   );
 }
