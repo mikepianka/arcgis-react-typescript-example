@@ -14,7 +14,7 @@ export default function GIS({ center, zoom }: IProps) {
 
   useEffect(() => {
     if (mapDiv.current) {
-      const map = new Map({ basemap: "topo" });
+      const map = new Map({ basemap: "topo-vector" });
 
       const view = new MapView({
         map,
